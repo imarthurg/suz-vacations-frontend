@@ -1,0 +1,88 @@
+import { Col, Container, Row } from 'react-bootstrap';
+import Image from 'next/image';
+
+import Dashboard from '../../components/Layout/Dashboard';
+import Card from '../../components/Layout/Card';
+import Paragraph from '../../components/Paragraph';
+import Button from '../../components/Button';
+import Space from '../../components/Layout/Space';
+import ChillImage from '../../public/chill.png';
+import AccomplishedVacations from '../../components/AccomplishedVacations';
+
+const Vacations = () => {
+  return (
+    <Dashboard>
+      <Container fluid>
+        <Row>
+          <Col>
+            <Row className="justify-content-center">
+              <Col xs="auto">
+                <Image src={ChillImage} alt="" />
+              </Col>
+            </Row>
+
+            <Space times={2} />
+
+            <Row className="justify-content-center">
+              <Col xs="auto">
+                <Paragraph align="center" style={{ maxWidth: 300 }}>
+                  Agende suas férias aqui. Lembre-se de agendar com 2 meses de
+                  antecedência, e considerar o período de férias coletivas
+                </Paragraph>
+              </Col>
+            </Row>
+
+            <Row className="justify-content-center">
+              <Col xs="auto">
+                <Button title="agendar férias" handleClick={null} />
+              </Col>
+            </Row>
+
+            <Space times={2} />
+
+            <Card title="minhas férias"></Card>
+          </Col>
+
+          <Col>
+            <Row>
+              <Col>
+                <Card title="solicitações em análise"></Card>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <Card title="saldo" darken center>
+                  <Paragraph align="center">
+                    quanto de férias você ainda tem
+                  </Paragraph>
+                  <Paragraph align="center">
+                    <b>x dias</b>
+                  </Paragraph>
+                </Card>
+              </Col>
+              <Col>
+                <Card title="prazo" darken center>
+                  <Paragraph align="center">
+                    tirar período de férias até
+                  </Paragraph>
+                  <Paragraph align="center">
+                    <b>xx/xx/xxxx</b>
+                  </Paragraph>
+                </Card>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col>
+                <AccomplishedVacations />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </Dashboard>
+  );
+};
+
+export default Vacations;

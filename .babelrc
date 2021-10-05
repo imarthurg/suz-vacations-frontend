@@ -1,0 +1,11 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "styled-components",
+      { "ssr": true, "displayName": true, "preprocess": false }
+    ]
+  ]
+}
+
+// the config above resolves a next.js problem with styled-components https://github.com/vercel/next.js/issues/7423
