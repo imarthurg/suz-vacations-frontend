@@ -1,13 +1,12 @@
 import { Col, Container, Row } from 'react-bootstrap';
-import Image from 'next/image';
 
 import Dashboard from '../../components/Layout/Dashboard';
 import Card from '../../components/Layout/Card';
 import Paragraph from '../../components/Paragraph';
 import Button from '../../components/Button';
 import Space from '../../components/Layout/Space';
-import ChillImage from '../../public/chill.png';
-import AccomplishedVacations from '../../components/AccomplishedVacations';
+import UserVacationsOverview from '../../components/UserVacationsOverview';
+import Table from '../../components/Table';
 
 const Vacations = () => {
   return (
@@ -15,14 +14,6 @@ const Vacations = () => {
       <Container fluid>
         <Row>
           <Col>
-            <Row className="justify-content-center">
-              <Col xs="auto">
-                <Image src={ChillImage} alt="" />
-              </Col>
-            </Row>
-
-            <Space times={2} />
-
             <Row className="justify-content-center">
               <Col xs="auto">
                 <Paragraph align="center" style={{ maxWidth: 300 }}>
@@ -40,13 +31,24 @@ const Vacations = () => {
 
             <Space times={2} />
 
-            <Card title="minhas férias"></Card>
+            <UserVacationsOverview />
           </Col>
 
           <Col>
             <Row>
               <Col>
-                <Card title="solicitações em análise"></Card>
+                <Card title="solicitações em análise">
+                  <Table
+                    tableData={{
+                      columns: ['período requisitado', 'dias totais'],
+                      data: [
+                        ['xx/xx/xxxx - xx/xx/xxxx', 'xx dias'],
+                        ['xx/xx/xxxx - xx/xx/xxxx', 'xx dias'],
+                        ['xx/xx/xxxx - xx/xx/xxxx', 'xx dias'],
+                      ],
+                    }}
+                  />
+                </Card>
               </Col>
             </Row>
 
@@ -75,7 +77,18 @@ const Vacations = () => {
 
             <Row>
               <Col>
-                <AccomplishedVacations />
+                <Card title="férias cumpridas">
+                  <Table
+                    tableData={{
+                      columns: ['período requisitado', 'dias totais'],
+                      data: [
+                        ['xx/xx/xxxx - xx/xx/xxxx', 'xx dias'],
+                        ['xx/xx/xxxx - xx/xx/xxxx', 'xx dias'],
+                        ['xx/xx/xxxx - xx/xx/xxxx', 'xx dias'],
+                      ],
+                    }}
+                  />
+                </Card>
               </Col>
             </Row>
           </Col>

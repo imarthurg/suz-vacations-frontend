@@ -26,15 +26,14 @@ const Card = styled(CardBox)`
   width: 100%;
   margin-bottom: 10px;
 
-
   .card-title {
     color: ${COLORS.primary};
     font-weight: bold;
     font-size: 18px;
+    letter-spacing: 1px;
   }
 
-  .card-title,
-  .card-content {
+  .card-title {
     text-align: ${(props) => (props.center ? 'center' : 'left')};
   }
 `;

@@ -1,12 +1,15 @@
 import { useRouter } from 'next/router';
+import useAuthStore from '../../../store/auth.store';
 import Button from '../../Button';
 
 const LoginForm = () => {
+  const { login }: any = useAuthStore();
   const router = useRouter();
 
   const handleClick = (e: Event) => {
     e.preventDefault();
-    router.push('vacations');
+    login();
+    router.push('/');
   };
 
   return (

@@ -7,6 +7,7 @@ interface BaseButtonProps {
   handleClick: any;
   className?: string;
   disabled?: boolean;
+  outline?: boolean;
 }
 
 const BaseButton = (props: BaseButtonProps) => {
@@ -18,8 +19,9 @@ const BaseButton = (props: BaseButtonProps) => {
 };
 
 const Button = styled(BaseButton)`
-  background-color: ${COLORS.primary};
-  color: ${COLORS.white};
+  background-color: ${(props) =>
+    props.outline ? 'transparent' : COLORS.primary};
+  color: ${(props) => (props.outline ? COLORS.primary : COLORS.white)};
   border: 1px solid ${COLORS.primary};
   border-radius: 47px;
   padding: 14px 30px;
@@ -29,6 +31,21 @@ const Button = styled(BaseButton)`
   cursor: pointer;
 
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    ${(props) =>
+      props.outline
+        ? `background-color: ${COLORS.primary};`
+        : 'filter: brightness(115%);'}
+    color: ${COLORS.white};
+    border-color: ${COLORS.white};
+  }
+
+  &:active {
+    filter: brightness(85%);
+  }
 `;
 
 export default Button;
