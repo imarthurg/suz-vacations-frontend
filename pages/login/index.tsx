@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import LoginBirdImage from '../../public/loginbird.png';
+import ZRPLogoImage from '../../public/zrplogo.png';
 import LoginForm from '../../components/Forms/LoginForm';
 import { COLORS } from '../../theme';
 
@@ -11,6 +12,9 @@ const Login = styled(({ className }) => {
         <Image src={LoginBirdImage} alt="Pássaro da ZRP" />
       </div>
       <div className="authContainer">
+        <div className="logo">
+          <Image src={ZRPLogoImage} alt="Logo da ZRP" />
+        </div>
         <LoginForm />
       </div>
     </div>
@@ -38,9 +42,14 @@ const Login = styled(({ className }) => {
     background-color: #ffffff;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 2;
+  }
+
+  .logo {
+    max-width: 400px;
   }
 `;
 
