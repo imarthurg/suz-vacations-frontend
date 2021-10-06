@@ -12,7 +12,7 @@ const useAuthStore = create((set) => ({
   },
   logout: () => {
     set({ logged: false });
-    useDashboardConfigStore.getState().reset();
+    (useDashboardConfigStore.getState() as any).reset();
   },
 }));
 
